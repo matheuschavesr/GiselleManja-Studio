@@ -1,29 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* BOTÃO ROLAGEM PARA CURSOS */
-  const btn = document.querySelector('.btn');
-  if (btn) {
-    btn.addEventListener('click', function (e) {
-      e.preventDefault();
-      document.querySelector('#cursos').scrollIntoView({
-        behavior: 'smooth'
-      });
-    });
-  }
-
-  /* BOTÃO HERO */
-  const btnHero = document.querySelector(".btn-hero");
-  if (btnHero) {
-    btnHero.addEventListener("click", function (e) {
-      e.preventDefault();
-      const destino = document.querySelector("#planos");
-      if (destino) {
-        destino.scrollIntoView({ behavior: "smooth" });
+  /* ===============================
+     BOTÕES DE SCROLL (GENÉRICO)
+  =============================== */
+  document.querySelectorAll(".btn-scroll").forEach(botao => {
+    botao.addEventListener("click", function (e) {
+      const destino = this.getAttribute("data-target");
+      if (destino && document.querySelector(destino)) {
+        e.preventDefault();
+        document.querySelector(destino).scrollIntoView({
+          behavior: "smooth"
+        });
       }
     });
-  }
+  });
 
-  /* HEADER DESCE AO SCROLL */
+  /* ===============================
+     HEADER DINÂMICO AO SCROLL
+  =============================== */
   const header = document.getElementById("mainHeader");
   if (header) {
     let lastScroll = 0;
@@ -42,7 +36,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* MODAL GALERIA */
+  /* ===============================
+     MODAL DA GALERIA
+  =============================== */
   const imagens = document.querySelectorAll(".galeria-grid img");
   const modal = document.getElementById("modal");
   const modalImg = document.getElementById("modalImg");
@@ -67,9 +63,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ANIMAÇÃO GALERIA AO SCROLL */
+  /* ===============================
+     ANIMAÇÃO AO SCROLL (GALERIA)
+  =============================== */
   function revealGaleria() {
     const alturaTela = window.innerHeight;
+
     imagens.forEach(img => {
       const topo = img.getBoundingClientRect().top;
       if (topo < alturaTela - 100) {
@@ -81,7 +80,9 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", revealGaleria);
   revealGaleria();
 
-  /* BOTÃO VOLTAR AO TOPO */
+  /* ===============================
+     BOTÃO VOLTAR AO TOPO
+  =============================== */
   const backToTop = document.getElementById("backToTop");
 
   if (backToTop) {
@@ -102,3 +103,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
+
