@@ -106,13 +106,14 @@ body {
     position: absolute;
     top: 50%;
     left: 75%;
-    transform: translate(-85%, -50%);
+    transform: translate(-65%, -50%);
     color: #140000;
 }
 
 .hero-text h1 {
     font-size: 100px;
     font-weight: normal;
+    font-size: clamp(2.2rem, 6vw, 100px);
 }
 
 .hero-text span {
@@ -701,3 +702,4 @@ body {
         margin: 0 auto;
     }
 }
+
