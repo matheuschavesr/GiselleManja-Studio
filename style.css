@@ -106,7 +106,7 @@ body {
     position: absolute;
     top: 50%;
     left: 75%;
-    transform: translate(-35%, -50%);
+    transform: translate(-55%, -50%);
     color: #140000;
 }
 
@@ -702,5 +702,6 @@ body {
         margin: 0 auto;
     }
 }
+
 
 
